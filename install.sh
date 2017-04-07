@@ -2,11 +2,20 @@
 USER_HOME=$(eval echo ~${SUDO_USER})
 echo ${USER_HOME}
 
-echo 'installing zsh'
-brew install zsh
+if brew ls --versions zsh > /dev/null; then
+    echo 'Skipping zsh installation'
+else 
+    echo 'installing zsh'
+    brew install zsh
+fi
 
-echo 'install z'
-brew install z
+
+if brew ls --versions z > /dev/null; then
+    echo 'Skipping z installation'
+else 
+    echo 'installing z'
+    brew install z
+fi
 
 echo 'install oh-my-zsh'
 rm -rf ${USER_HOME}/.oh-my-zsh
@@ -23,21 +32,28 @@ cd -
 
 
 echo 'git setup'
+rm  ${USER_HOME}/.git-completion.bash
+rm  ${USER_HOME}/.gitconfig
 ln -s $(pwd)/git/.git-completion.bash ${USER_HOME}/.git-completion.bash
 ln -s $(pwd)/git/.gitconfig ${USER_HOME}/.gitconfig
 
 echo 'allow dotfiles to be visible'
 defaults write com.apple.finder AppleShowAllFiles YES
 
-echo 'hitch install start'
-gem install hitch
-hitch --setup >> ~/.zshrc
+if gem list -i hitch; then
+    echo 'hitch already installed'
+else
+    echo 'hitch install start'
+    sudo gem install hitch
+    hitch --setup >> ~/.zshrc
+    ln -s $(pwd)/hitch/.hitchrc ${USER_HOME}/.hitchrc
+    ln -s $(pwd)/hitch/.hitch_pairs ${USER_HOME}/.hitch_pairs
+    ln -s $(pwd)/hitch/.hitch_export_authors ${USER_HOME}/.hitch_export_authors
+    echo 'hitch install complete'
+fi
 
-ln -s $(pwd)/hitch/.hitchrc ${USER_HOME}/.hitchrc
-ln -s $(pwd)/hitch/.hitch_pairs ${USER_HOME}/.hitch_pairs
-ln -s $(pwd)/hitch/.hitch_export_authors ${USER_HOME}/.hitch_export_authors
-echo 'hitch install complete'
-
+echo 'Copying Fonts'
+cp -r $(pwd)/fonts/ ${USER_HOME}/Library/Fonts/
 
 echo 'vim and vundle setup start'
 rm -rf ${USER_HOME}/.vim/vundle
