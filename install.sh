@@ -8,19 +8,19 @@ brew install zsh
 echo 'install z'
 brew install z
 
-echo '$(pwd)'
-ln -s $(pwd)/bash/.bashrc ${USER_HOME}/.bashrc
-ln -s $(pwd)/zsh/.zshrc ${USER_HOME}/.zshrc
-
 echo 'install oh-my-zsh'
 rm -rf ${USER_HOME}/.oh-my-zsh
-sh "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone git://github.com/robbyrussell/oh-my-zsh.git ${USER_HOME}/.oh-my-zsh
+ln -s $(pwd)/bash/.bashrc ${USER_HOME}/.bashrc
+ln -s $(pwd)/zsh/.zshrc ${USER_HOME}/.zshrc
+chsh -s /bin/zsh
 
 echo 'install zshmarks'
 cd ${USER_HOME}/.oh-my-zsh/custom/plugins
 git clone https://github.com/jocelynmallon/zshmarks.git
 source ${USER_HOME}/.zshrc
 cd -
+
 
 echo 'git setup'
 ln -s $(pwd)/git/.git-completion.bash ${USER_HOME}/.git-completion.bash
