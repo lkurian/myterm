@@ -88,8 +88,8 @@ source $HOME/.bashrc
 # include Z, yo
 . /usr/local/Cellar/z
 
-
-export PATH=$PATH:/usr/local/opt/go/libexec/bin:/usr/local/custom
+alias python='/usr/local/Cellar/python3/3.6.1/bin/python3.6'
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:/usr/local/custom:/usr/local/Cellar/python3/3.6.1/bin
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -117,3 +117,4 @@ alias unhitch='hitch -u'
 
 # Uncomment to persist pair info between terminal instances
 # hitch
+export PATH="/usr/local/opt/freetds@0.91/bin:$PATH"

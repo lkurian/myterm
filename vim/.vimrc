@@ -39,6 +39,7 @@ Bundle 'delimitMate.vim'
 Bundle 'camelcasemotion'
 Bundle 'railscasts'
 Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
 autocmd FileType haskell compiler hlint
 runtime macros/matchit.vim
 
@@ -176,6 +177,9 @@ vmap P p :call setreg('"', getreg('0')) <CR>
 au! BufRead,BufNewFile *.haml         setfiletype haml
 
 nmap <F1> <Esc>
+
+" tagbar mapping to F8
+nmap <F8> :TagbarToggle<CR>
 
 imap <C-F> <C-R>=expand("%")<CR>
 
