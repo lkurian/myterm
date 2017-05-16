@@ -36,6 +36,8 @@ rm  ${USER_HOME}/.git-completion.bash
 rm  ${USER_HOME}/.gitconfig
 ln -s $(pwd)/git/.git-completion.bash ${USER_HOME}/.git-completion.bash
 ln -s $(pwd)/git/.gitconfig ${USER_HOME}/.gitconfig
+ln -s $(pwd)/git/.global_ignore ${USER_HOME}/.global_ignore
+git config --global core.excludesfile ${USER_HOME}/.global_ignore
 
 echo 'allow dotfiles to be visible'
 defaults write com.apple.finder AppleShowAllFiles YES
