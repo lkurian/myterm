@@ -167,6 +167,9 @@ map <leader>n :NERDTreeToggle<CR>
 
 map <leader>ob :OpenBookmark
 map <leader>b :Bookmark
+" tagbar mapping to t
+map <leader>T :TagbarToggle<CR>
+
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 
@@ -178,8 +181,6 @@ au! BufRead,BufNewFile *.haml         setfiletype haml
 
 nmap <F1> <Esc>
 
-" tagbar mapping to F8
-nmap <F8> :TagbarToggle<CR>
 
 imap <C-F> <C-R>=expand("%")<CR>
 

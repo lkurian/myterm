@@ -1,0 +1,8 @@
+# Basic options
+--recurse=yes
+--tag-relative=yes
+--python-kinds=-iv
+--exclude=build
+--exclude=dist
+--exclude=.git
+--exclude=venv3
