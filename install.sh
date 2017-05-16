@@ -60,5 +60,6 @@ rm -rf ${USER_HOME}/.vim/vundle
 mkdir -p  ${USER_HOME}/.vim/vundle
 git clone https://github.com/gmarik/vundle.git ${USER_HOME}/.vim/vundle
 ln -s $(pwd)/vim/.vimrc ${USER_HOME}/.vimrc
+ln -s $(pwd)/vim/.ctags ${USER_HOME}/.ctags
 echo 'Now open vim and run :BundleInstall'
 
