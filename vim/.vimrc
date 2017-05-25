@@ -162,7 +162,8 @@ map <Leader>nh :noh<CR>
 
 map <C-J> :m +1 <CR>
 map <C-K> :m -2 <CR>
-map <leader>n :NERDTreeToggle<CR>
+map <leader>n :NERDTreeFind<CR>
+map <leader>m :NERDTreeToggle<CR>
 
 
 map <leader>ob :OpenBookmark
