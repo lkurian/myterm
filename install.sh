@@ -4,7 +4,7 @@ echo ${USER_HOME}
 
 if brew ls --versions zsh > /dev/null; then
     echo 'Skipping zsh installation'
-else 
+else
     echo 'installing zsh'
     brew install zsh
 fi
@@ -12,7 +12,7 @@ fi
 
 if brew ls --versions z > /dev/null; then
     echo 'Skipping z installation'
-else 
+else
     echo 'installing z'
     brew install z
 fi
@@ -20,8 +20,8 @@ fi
 echo 'install oh-my-zsh'
 rm -rf ${USER_HOME}/.oh-my-zsh
 git clone git://github.com/robbyrussell/oh-my-zsh.git ${USER_HOME}/.oh-my-zsh
-ln -s $(pwd)/bash/.bashrc ${USER_HOME}/.bashrc
-ln -s $(pwd)/zsh/.zshrc ${USER_HOME}/.zshrc
+ln -fs $(pwd)/bash/.bashrc ${USER_HOME}/.bashrc
+ln -fs $(pwd)/zsh/.zshrc ${USER_HOME}/.zshrc
 chsh -s /bin/zsh
 
 echo 'install zshmarks'
@@ -32,11 +32,20 @@ cd -
 
 
 echo 'git setup'
+
+echo I like to know your name to configure git
+read -p 'name: ' emailAddress
+
+echo I like to know your email address to configure git
+read -p 'email address: ' emailAddress
+
+sed -i.bak -e "s/\${emailAddress}/${emailAddress}/g" -e "s/\${name}/${name}/g" $(pwd)/git/.gitconfig
+
 rm  ${USER_HOME}/.git-completion.bash
 rm  ${USER_HOME}/.gitconfig
-ln -s $(pwd)/git/.git-completion.bash ${USER_HOME}/.git-completion.bash
-ln -s $(pwd)/git/.gitconfig ${USER_HOME}/.gitconfig
-ln -s $(pwd)/git/.global_ignore ${USER_HOME}/.global_ignore
+ln -fs $(pwd)/git/.git-completion.bash ${USER_HOME}/.git-completion.bash
+ln -fs $(pwd)/git/.gitconfig ${USER_HOME}/.gitconfig
+ln -fs $(pwd)/git/.global_ignore ${USER_HOME}/.global_ignore
 git config --global core.excludesfile ${USER_HOME}/.global_ignore
 
 echo 'allow dotfiles to be visible'
@@ -61,7 +70,6 @@ echo 'vim and vundle setup start'
 rm -rf ${USER_HOME}/.vim/vundle
 mkdir -p  ${USER_HOME}/.vim/vundle
 git clone https://github.com/gmarik/vundle.git ${USER_HOME}/.vim/vundle
-ln -s $(pwd)/vim/.vimrc ${USER_HOME}/.vimrc
-ln -s $(pwd)/vim/.ctags ${USER_HOME}/.ctags
+ln -fs $(pwd)/vim/.vimrc ${USER_HOME}/.vimrc
+ln -fs $(pwd)/vim/.ctags ${USER_HOME}/.ctags
 echo 'Now open vim and run :BundleInstall'
-
