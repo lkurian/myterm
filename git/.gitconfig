@@ -11,13 +11,13 @@
   ci = commit
   a = add
   pr = pull --rebase
-  cma = commit --amend 
-  cmr = commit --amend --reset-author 
+  cma = commit --amend
+  cmr = commit --amend --reset-author
   pu = push
   aa = add -A .
   ap = add -p
-  br = branch 
-  rbi = rebase -i 
+  br = branch
+  rbi = rebase -i
   rbc = rebase --continue
   #Find a file path in codebase
   f = "!git ls-files | grep -i"
@@ -33,7 +33,7 @@
   status = auto
 [color "branch"]
   current = yellow reverse
-  local = yellow 
+  local = yellow
    remote = green
 [color "diff"]
   meta = yellow bold
@@ -49,8 +49,8 @@
 [core]
   editor = /usr/bin/vim
 [user]
-  name = Lucy kurian
-  email = lucykur@thoughtworks.com
+  name = ${name}
+  email = ${emailAddress}
 [merge]
 	defaultToUpstream = true
 [credential]
