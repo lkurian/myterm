@@ -40,6 +40,8 @@ Bundle 'camelcasemotion'
 Bundle 'railscasts'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
+Bundle 'fatih/vim-go'
+
 autocmd FileType haskell compiler hlint
 runtime macros/matchit.vim
 
@@ -279,6 +281,10 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 map <Leader>nt :Note<CR>
 map <Leader>ns :NoteFromSelectedText<CR>
 
+" vim-go
+autocmd FileType go nmap <leader>gb  <Plug>(go-build)
+autocmd FileType go nmap <leader>gr  <Plug>(go-run)
+autocmd FileType go nmap <leader>gt  <Plug>(go-test)
 " set softtabstop=2
 " set textwidth=79
 " set shiftwidth=2
