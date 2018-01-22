@@ -66,10 +66,22 @@ fi
 echo 'Copying Fonts'
 cp -r $(pwd)/fonts/ ${USER_HOME}/Library/Fonts/
 
+echo 'setting up geeknote'
+mkdir ${USER_HOME}/installers
+cd ${USER_HOME}/installers 
+git clone https://github.com/pipakin/geeknote.git
+cd geeknote 
+sudo python ./setup.py install
+geeknote settings --editor vim
+geeknote login
+
 echo 'vim and vundle setup start'
+brew install vim --with-override-system-vim
+brew upgrade vim
 rm -rf ${USER_HOME}/.vim/vundle
 mkdir -p  ${USER_HOME}/.vim/vundle
 git clone https://github.com/gmarik/vundle.git ${USER_HOME}/.vim/vundle
 ln -fs $(pwd)/vim/.vimrc ${USER_HOME}/.vimrc
 ln -fs $(pwd)/vim/.ctags ${USER_HOME}/.ctags
 echo 'Now open vim and run :BundleInstall'
+

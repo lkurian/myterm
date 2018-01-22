@@ -41,6 +41,8 @@ Bundle 'railscasts'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'fatih/vim-go'
+Bundle 'neilagabriel/vim-geeknote'
+
 
 autocmd FileType haskell compiler hlint
 runtime macros/matchit.vim
@@ -167,6 +169,7 @@ map <C-K> :m -2 <CR>
 map <leader>n :NERDTreeFind<CR>
 map <leader>m :NERDTreeToggle<CR>
 
+map <leader>en :Geeknote<CR>
 
 map <leader>ob :OpenBookmark
 map <leader>b :Bookmark
