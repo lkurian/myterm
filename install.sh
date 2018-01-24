@@ -75,6 +75,9 @@ sudo python ./setup.py install
 geeknote settings --editor vim
 geeknote login
 
+echo 'install ack for vim and terminal'
+brew install ack
+
 echo 'vim and vundle setup start'
 brew install vim --with-override-system-vim
 brew upgrade vim

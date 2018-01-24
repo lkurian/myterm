@@ -117,5 +117,6 @@ alias unhitch='hitch -u'
 
 # hitch
 # Uncomment to persist pair info between terminal instances
+export GOPATH="$HOME/Projects/GoPay"
 export PATH="/usr/local/opt/freetds@0.91/bin:$PATH:$GOPATH/bin:/usr/local/bin/vim"
-export GOPATH="$HOME/Projects/GoJek"
+export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
