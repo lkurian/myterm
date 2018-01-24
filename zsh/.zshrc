@@ -88,7 +88,7 @@ source $HOME/.bashrc
 # include Z, yo
 . /usr/local/Cellar/z
 
-alias python='/usr/local/Cellar/python3/3.6.1/bin/python3.6'
+alias python='/usr/local/Cellar/python3/3.6.4_2/bin/python3.6'
 export PATH=$PATH:/usr/local/opt/go/libexec/bin:/usr/local/custom:/usr/local/Cellar/python3/3.6.1/bin:/usr/local/Cellar/scala@2.11/2.11.8_1/bin:/opt/jruby/bin
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

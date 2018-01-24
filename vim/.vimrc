@@ -40,9 +40,19 @@ Bundle 'camelcasemotion'
 Bundle 'railscasts'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
-Bundle 'fatih/vim-go'
 Bundle 'neilagabriel/vim-geeknote'
+Bundle 'neomake/neomake'
 
+"go plugins
+Bundle 'fatih/vim-go'
+Bundle 'Shougo/deoplete.nvim'
+Bundle 'zchee/deoplete-go'
+Bundle 'jodosha/vim-godebug'
+Bundle 'roxma/nvim-yarp'
+Bundle 'roxma/vim-hug-neovim-rpc'
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
 autocmd FileType haskell compiler hlint
 runtime macros/matchit.vim

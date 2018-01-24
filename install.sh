@@ -86,5 +86,10 @@ mkdir -p  ${USER_HOME}/.vim/vundle
 git clone https://github.com/gmarik/vundle.git ${USER_HOME}/.vim/vundle
 ln -fs $(pwd)/vim/.vimrc ${USER_HOME}/.vimrc
 ln -fs $(pwd)/vim/.ctags ${USER_HOME}/.ctags
+
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+
 echo 'Now open vim and run :BundleInstall'
 
