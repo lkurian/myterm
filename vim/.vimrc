@@ -175,6 +175,8 @@ map <leader>T :TagbarToggle<CR>
 
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
+" format json
+map <leader>fj :%!python -m json.tool <CR>
 
 vmap D y'>p
 
