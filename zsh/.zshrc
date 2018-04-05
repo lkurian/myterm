@@ -90,7 +90,7 @@ source $HOME/.bashrc
 
 alias python='/usr/local/Cellar/python3/3.6.1/bin/python3.6'
 export PATH=$PATH:/usr/local/opt/go/libexec/bin:/usr/local/custom:/usr/local/Cellar/python3/3.6.1/bin:/usr/local/Cellar/scala@2.11/2.11.8_1/bin
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Add the following to your ~/.bashrc or ~/.zshrc
@@ -117,5 +117,9 @@ alias unhitch='hitch -u'
 
 # Uncomment to persist pair info between terminal instances
 # hitch
-export GOPATH="$HOME/projects/mckinsey"
+export GOPATH="$HOME/Projects/GoPay"
 export PATH="/usr/local/opt/freetds@0.91/bin:$PATH:$GOPATH/bin"
+
+export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
+

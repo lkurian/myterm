@@ -16,7 +16,6 @@ Bundle 'visualstar.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mrkschan/vim-node-jslint'
 Bundle 'milkbikis/IDSearch.vim.git'
-Bundle 'AutoTag'
 Bundle 'textobj-diff'
 Bundle 'textobj-entire'
 Bundle 'textobj-fold'
@@ -41,6 +40,9 @@ Bundle 'railscasts'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'fatih/vim-go'
+Bundle 'elzr/vim-json'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'thoughtbot/vim-rspec'
 
 autocmd FileType haskell compiler hlint
 runtime macros/matchit.vim
@@ -122,7 +124,6 @@ map <Leader>sc :RScontroller
 map <Leader>sv :RSview 
 map <Leader>su :RSunittest 
 map <Leader>sf :RSfunctionaltest 
-map <Leader>rt :Rake<CR>
 
 map <Leader>a :Ack 
 map <Leader>x :%s/\s\+$//<CR>
@@ -150,8 +151,8 @@ map <Leader>fm :FufBufferTag<CR>
 map <Leader>fk :FufBookmarkFile<CR>
 map <Leader>fa :FufBookmarkFileAdd<CR>
 map <Leader>fq :FufQuickFix<CR>
-map <Leader>fx :!ctags -R *<CR>
 
+map <Leader>fx :!ctags -R .<CR>
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
@@ -321,3 +322,8 @@ set statusline+=%*
 " Editing a protected file as 'sudo'
 cmap W w !sudo tee % >/dev/null<CR>
 
+" RSpec.vim mappings
+map <Leader>rt :call RunCurrentSpecFile()<CR>
+map <Leader>rs :call RunNearestSpec()<CR>
+map <Leader>rl :call RunLastSpec()<CR>
+map <Leader>ra :call RunAllSpecs()<CR>
