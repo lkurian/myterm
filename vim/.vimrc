@@ -297,7 +297,7 @@ set smartindent
 set shiftwidth=4 
 set tabstop=4 
 set expandtab
-python << EOF
+py3 << EOF
 import os
 import sys
 import vim
