@@ -84,13 +84,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.bashrc
+chsh -s $(which zsh)
 
 # include Z, yo
-. /usr/local/Cellar/z
+. /opt/homebrew/etc/profile.d/z.sh
 
-alias python='/usr/local/Cellar/python3/3.6.1/bin/python3.6'
-export PATH=$PATH:/usr/local/opt/go/libexec/bin:/usr/local/custom:/usr/local/Cellar/python3/3.6.1/bin:/usr/local/Cellar/scala@2.11/2.11.8_1/bin
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home
+#alias python='/usr/local/Cellar/python3/3.6.1/bin/python3.6'
 alias unhitch='hitch -u'
 
 # Uncomment to persist pair info between terminal instances
@@ -107,11 +106,24 @@ alias unhitch='hitch -u'
 
 # Uncomment to persist pair info between terminal instances
 # hitch
-export GOPATH="$HOME/Projects/GoPay"
 export PATH="/usr/local/opt/freetds@0.91/bin:$PATH:$GOPATH/bin"
 
 export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+#  . "/usr/local/opt/nvm/nvm.sh"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+# Add the following to your ~/.bashrc or ~/.zshrc
+#
+# Alternatively, copy/symlink this file and source in your shell.  See `hitch --setup-path`.
+
+hitch() {
+  command hitch "$@"
+  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
+}
+alias unhitch='hitch -u'
+
+# Uncomment to persist pair info between terminal instances
+# hitch

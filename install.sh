@@ -19,10 +19,11 @@ fi
 
 echo 'install oh-my-zsh'
 rm -rf ${USER_HOME}/.oh-my-zsh
-git clone git://github.com/robbyrussell/oh-my-zsh.git ${USER_HOME}/.oh-my-zsh
+git clone https://github.com/ohmyzsh/ohmyzsh.git ${USER_HOME}/.oh-my-zsh
+cp ${USER_HOME}/.zshrc ${USER_HOME}/.zshrc.orig
 ln -fs $(pwd)/bash/.bashrc ${USER_HOME}/.bashrc
 ln -fs $(pwd)/zsh/.zshrc ${USER_HOME}/.zshrc
-chsh -s /bin/zsh
+chsh -s $(which zsh)
 
 echo 'install zshmarks'
 cd ${USER_HOME}/.oh-my-zsh/custom/plugins
@@ -69,7 +70,7 @@ cp -r $(pwd)/fonts/ ${USER_HOME}/Library/Fonts/
 echo 'vim and vundle setup start'
 rm -rf ${USER_HOME}/.vim/vundle
 mkdir -p  ${USER_HOME}/.vim/vundle
-git clone https://github.com/gmarik/vundle.git ${USER_HOME}/.vim/vundle
+git clone https://github.com/vim-scripts/vundle.git ${USER_HOME}/.vim/vundle
 ln -fs $(pwd)/vim/.vimrc ${USER_HOME}/.vimrc
 ln -fs $(pwd)/vim/.ctags ${USER_HOME}/.ctags
 echo 'Now open vim and run :BundleInstall'
