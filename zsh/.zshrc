@@ -51,9 +51,14 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, zshmarks)
+plugins=(git zshmarks)
 
 source $ZSH/oh-my-zsh.sh
+
+alias g="jump"
+alias s="bookmark"
+alias d="deletemark"
+alias list="showmarks"
 
 # User configuration
 
@@ -84,7 +89,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.bashrc
-chsh -s $(which zsh)
 
 # include Z, yo
 . /opt/homebrew/etc/profile.d/z.sh

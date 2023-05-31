@@ -1,4 +1,5 @@
 #!/bin/bash --login
+chsh -s $(which zsh)
 USER_HOME=$(eval echo ~${SUDO_USER})
 echo ${USER_HOME}
 
@@ -68,9 +69,9 @@ echo 'Copying Fonts'
 cp -r $(pwd)/fonts/ ${USER_HOME}/Library/Fonts/
 
 echo 'vim and vundle setup start'
-rm -rf ${USER_HOME}/.vim/vundle
-mkdir -p  ${USER_HOME}/.vim/vundle
-git clone https://github.com/vim-scripts/vundle.git ${USER_HOME}/.vim/vundle
+rm -rf ${USER_HOME}/.vim/plugin
+mkdir -p  ${USER_HOME}/.vim/plugin
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ln -fs $(pwd)/vim/.vimrc ${USER_HOME}/.vimrc
 ln -fs $(pwd)/vim/.ctags ${USER_HOME}/.ctags
-echo 'Now open vim and run :BundleInstall'
+echo 'Now open vim and run :PluginInstall'

@@ -1,48 +1,53 @@
-set rtp+=~/.vim/vundle/
-call vundle#rc()
+set nocompatible              " be iMproved, required
 filetype off
 
-Bundle 'tpope/vim-git'
-Bundle 'ktvoelker/sbt-vim'
-Bundle 'xolox/vim-misc'
-Bundle 'csv.vim'
-Bundle 'derekwyatt/vim-scala.git'
-Bundle 'briancollins/vim-jst.git'
-Bundle 'powerline/powerline'
-Bundle 'vim-scripts/Rainbow-Parenthsis-Bundle'
-Bundle 'sudo.vim'
-Bundle 'austintaylor/vim-indentobject'
-Bundle 'visualstar.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'mrkschan/vim-node-jslint'
-Bundle 'milkbikis/IDSearch.vim.git'
-Bundle 'textobj-diff'
-Bundle 'textobj-entire'
-Bundle 'textobj-fold'
-Bundle 'textobj-lastpat'
-Bundle 'textobj-syntax'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'matchit.zip'
-Bundle 'textobj-user'
-Bundle 'textobj-rubyblock'
-Bundle 'unimpaired.vim'
-Bundle 'errormarker.vim'
-Bundle 'abolish.vim'
-Bundle 'delimitMate.vim'
-Bundle 'camelcasemotion'
-Bundle 'railscasts'
-Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'fatih/vim-go'
-Bundle 'elzr/vim-json'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'thoughtbot/vim-rspec'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" plugin on GitHub repo
+Plugin 'tpope/vim-git'
+Plugin 'xolox/vim-misc'
+Plugin 'csv.vim'
+Plugin 'briancollins/vim-jst.git'
+Plugin 'powerline/powerline'
+Plugin 'vim-scripts/Rainbow-Parenthsis-Bundle'
+Plugin 'sudo.vim'
+Plugin 'austintaylor/vim-indentobject'
+Plugin 'visualstar.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mrkschan/vim-node-jslint'
+Plugin 'milkbikis/IDSearch.vim.git'
+Plugin 'textobj-diff'
+Plugin 'textobj-entire'
+Plugin 'textobj-fold'
+Plugin 'textobj-lastpat'
+Plugin 'textobj-syntax'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'matchit.zip'
+Plugin 'textobj-user'
+Plugin 'textobj-rubyblock'
+Plugin 'unimpaired.vim'
+Plugin 'errormarker.vim'
+Plugin 'abolish.vim'
+Plugin 'delimitMate.vim'
+Plugin 'camelcasemotion'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'fatih/vim-go'
+Plugin 'elzr/vim-json'
+Plugin 'preservim/nerdtree'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 autocmd FileType haskell compiler hlint
 runtime macros/matchit.vim
@@ -106,24 +111,6 @@ set expandtab
 set laststatus=2
 
 let mapleader = ","
-
-map <Leader>R :e doc/README_FOR_APP<CR>
-
-map <Leader>m :Rmodel 
-map <Leader>c :Rcontroller 
-map <Leader>v :Rview 
-map <Leader>u :Runittest 
-" map <Leader>f :Rfunctionaltest 
-map <Leader>tm :RTmodel 
-map <Leader>tc :RTcontroller 
-map <Leader>tv :RTview 
-map <Leader>tu :RTunittest 
-map <Leader>tf :RTfunctionaltest 
-map <Leader>sm :RSmodel 
-map <Leader>sc :RScontroller 
-map <Leader>sv :RSview 
-map <Leader>su :RSunittest 
-map <Leader>sf :RSfunctionaltest 
 
 map <Leader>a :Ack 
 map <Leader>x :%s/\s\+$//<CR>
@@ -297,14 +284,14 @@ set smartindent
 set shiftwidth=4 
 set tabstop=4 
 set expandtab
-py3 << EOF
-import os
-import sys
-import vim
-for p in sys.path:
-    if os.path.isdir(p):
-        vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
-EOF
+" py3 << EOF
+" import os
+" import sys
+" import vim
+" for p in sys.path:
+    " if os.path.isdir(p):
+        " vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
+" EOF
 set guioptions+=c
 au FocusLost * :wa
 set autowriteall
@@ -322,8 +309,3 @@ set statusline+=%*
 " Editing a protected file as 'sudo'
 cmap W w !sudo tee % >/dev/null<CR>
 
-" RSpec.vim mappings
-map <Leader>rt :call RunCurrentSpecFile()<CR>
-map <Leader>rs :call RunNearestSpec()<CR>
-map <Leader>rl :call RunLastSpec()<CR>
-map <Leader>ra :call RunAllSpecs()<CR>

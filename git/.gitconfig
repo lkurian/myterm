@@ -48,9 +48,6 @@
   default = current
 [core]
   editor = /usr/bin/vim
-[user]
-  name = ${name}
-  email = ${emailAddress}
 [merge]
 	defaultToUpstream = true
 [credential]
